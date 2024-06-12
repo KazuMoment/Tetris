@@ -116,6 +116,7 @@ public class PlayManager {
         level = 1;
         lines = 0;
         score = 0;
+        dropInterval = 60;
         gameOver = false;
         GamePanel.music.play(0, true);
     }
