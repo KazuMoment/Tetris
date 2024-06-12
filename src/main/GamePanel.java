@@ -66,6 +66,10 @@ public class GamePanel extends JPanel implements Runnable{
             pm.update();
         }
 
+        if (KeyHandler.upPressed && pm.gameOver){
+            pm.resetGame();
+        }
+
     }
 
     public void paintComponent(Graphics g){

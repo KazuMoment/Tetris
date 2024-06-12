@@ -105,6 +105,20 @@ public class PlayManager {
         }
         return mino;
     }
+
+    public void resetGame(){
+
+        for(int i = staticBlocks.size() - 1; i > - 1; i--){
+            // Remove all blocks 
+            staticBlocks.remove(i);
+        }
+
+        level = 1;
+        lines = 0;
+        score = 0;
+        gameOver = false;
+        GamePanel.music.play(0, true);
+    }
     
     public void update(){
         // Check if currentMino is active
@@ -272,12 +286,15 @@ public class PlayManager {
         }
 
         // Draw Pause or Game Over
-        g2.setColor(Color.yellow);
+        g2.setColor(Color.white);
         g2.setFont(g2.getFont().deriveFont(50f));
         if (gameOver){
             x = left_x + 25;
             y = top_y + 320;
             g2.drawString("GAME OVER", x, y);
+            x = left_x - 120;
+            y += 70;
+            g2.drawString("Press UP or W to try again.", x, y);
         }
         else if (KeyHandler.pausePressed){
             x = left_x + 70;
